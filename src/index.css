@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff;
+    color: #161515;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+
+.wrapper {
+    width: 1280px;
+    margin: 50px auto;
+}
+
+header{
+    position:relative;
+}
+
+input.search-input {
+    padding: 10px;
+    margin: 0 100px;
+    width: 600px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+}
+
+
+
+
+header .logo {
+    font-weight: 600;
+    font-size: 30px;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+header .logo {
+    display: inline;
+    margin-left: 25px;
+    cursor: pointer;
+    transition: opacity 500ms ease;
+}
+
+header .logo:hover {
+    opacity: 0.5;
+}
+
+header ul.nav {
+    float: right;
+        list-style: none;
+        font-size: 20px;
+    text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+    margin-top: 10px;
+    
+}
+
+header ul.nav li{
+    display: inline;
+    margin-left: 25px;
+    cursor: pointer;
+    transition: opacity 500ms ease;
+}
+
+header ul.nav li:hover {
+    opacity: 0.5;
+}
+
+
+
+header .shop-cart-button{
+    float: right;
+    cursor: pointer;
+    margin-top: 16px;
+    transition: color, transform 1000ms ease;
+}
+
+    header .shop-cart-button:hover,
+    header .shop-cart-button.active {
+        color: #ca5252;
+    }
+
+
+    header  .shop-cart-button:hover {
+        transform: scale(1.5);
+    }
+    
+    header   .shop-cart-button:active {
+        background-color: #d47878;
+        color: #000;
+        animation: changeColor 1s ease;
+    }
+    
+    @keyframes changeColor {
+        0% {
+            background-color: #ff0000;
+            color: #000;
+        }
+        100% {
+            background-color: #ca5252;
+            color: #fff;
+        }
+    }
+
+header .shop-cart{
+    position: absolute;
+    top: 50px;
+    right: 0;
+    width: 500px;
+    min-height: 120px;
+    background: #fafafa;
+    -webkit-box-shadow: 4px 5px 15px -7px #606060;
+    box-shadow: 4px 5px 15px -7px #606060;
+    z-index: 1000;
+    padding: 20px;
+    padding-bottom: 0;
+    
+    
+
+    
+}
+
+
+
+
+header .shop-cart .empty h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+header .shop-cart .item{
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+
+
+header .shop-cart .img{
+    width: 70px;
+    float: left;
+    margin-right: 20px;
+    
+}
+
+header .shop-cart .item h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+header .shop-cart .item p{
+    color: #797979;
+    font-weight: 600;
+}
+
+header .shop-cart .item .delete-icon {
+    color: #ca5252;
+    float: right;
+    position: relative;
+    top: -5px;
+    cursor: pointer;
+    transition: color, transform 500ms ease;
+}
+
+header .shop-cart .item .delete-icon:hover {
+    color: #ff0000;
+    transform: scale(1.5);
+}
+
+header .shop-cart .summa {
+    float: left;
+    width: 100%;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+header .clear-cart-button {
+    margin: 0 auto;
+  display: block;
+  width: 150px;
+  height: 20px;
+  background-color: red;
+  color: white;
+  margin-bottom: 5px;
+  transition: transform 0.3s ease;
+}
+
+header .clear-cart-button:hover {
+    transform: scale(1.2);
+}
+
+
+.checkout-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .checkout-button:hover {
+    background-color: #45a049;
+  }
+  
+
+header .presentation {
+    margin: 50px 0;
+    background: url('./img/logo.png') no-repeat;
+    width: 100%;
+    height: 600px;
+    background-size: cover;
+    background-position: center center;
+    background-blend-mode: multiply;
+    background-color: #bcbcbc;
+    position: relative;
+}
+
+header .presentation::after {
+    content: 'The best sneakers for you';
+    position: absolute;
+    top: 100px;
+    left: 50px;
+    width: 300px;
+    font-size: 40px;
+    font-weight: 600;
+    color: white;
+
+}
+
+    header .presentation::before {
+        content: 'for low price';
+        position: absolute;
+        top: 250px;
+        left: 50px;
+        width: 300px;
+        font-size: 20px;
+        font-weight: 300;
+        color: white;
+    }
+
+    .categories div {
+        display: inline-block;
+        background: #f2f2f2;
+        border-radius: 50px;
+        padding: 10px 20px;
+        margin-bottom: 25px;
+        margin-right: 15px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all 500ms ease;
+    
+    }
+
+    .categories div:hover {
+        border-color: silver;
+        transform: scale(1.1);
+    }
+
+
+
+    main{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+   .empty{
+        text-align:center;
+        font-size: 30px;
+        padding: 10px 10px 10px 10px ;
+    }
+
+
+    main .item{
+        width: 30%;
+        margin-bottom: 50px;
+        background: #f5f5f5;
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 20px;
+    }
+
+    main .item img{
+        width: 100%;
+        border-radius: 10px 10px 0 0;
+        transition: transform 500ms ease;
+    }
+
+    main .item img:hover{
+        transform: scale(1.05);
+    }
+
+    main h2, main p, main b {
+        margin: 10px 20px;
+        color: #333;
+    }
+
+    main b {
+        color: #4fed19;
+    }
+
+    main .add-to-cart {
+        position: absolute;
+        right: 20px;
+        bottom: 20px;
+        background: #ca5252;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+        color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        font-weight: 600;
+        transition: transform 500ms ease, background-color 500ms ease;
+    }
+    
+    main .add-to-cart:hover {
+        transform: scale(1.2);
+    }
+    
+    main .add-to-cart:active {
+        background-color: #ff0000;
+        color: #000;
+        animation: changeColor 1s ease;
+    }
+    
+    @keyframes changeColor {
+        0% {
+            background-color: #ff0000;
+            color: #000;
+        }
+        100% {
+            background-color: #ca5252;
+            color: #fff;
+        }
+    }
+
+    footer{
+        text-align: center;
+        margin-top: 10px;
+    }
+
+
+    /* пажелая вкладка профиль*/
+.proftext {
+    text-align: center;
+    font-size: 30;
+    box-shadow: 0 0 20px rgba( 0,0,0, 0.1);
+    margin: 0 auto;
+    padding: 10px 10px 10px 10px;
+
+}
+    /* LoginForm.css */
+.login-form {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .login-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .login-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .login-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .login-form button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .login-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .login-form p {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .login-form span {
+    color: blue;
+    cursor: pointer;
+  }
+
+  
+  /* RegistrationForm.css */
+.registration-form {
+    max-width: 300px;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .registration-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .registration-form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .registration-form input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .registration-form button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  .registration-form button:hover {
+    background-color: #2980b9;
+  }
+  
+  .registration-form p {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .registration-form span {
+    color: blue;
+    cursor: pointer;
+  }
+  
+  .Toastify__toast {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border-radius: 10px;
+  }
+  
+  .Toastify__toast--success {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .Toastify__toast-body {
+    font-size: 16px;
+  }
+    
+  /* Стили для текста в "about us" и "contacts" */
+  .about-us-text, .contacts-text {
+    margin: 20px 0;
+    text-align: center;
+    font-size: 24px;
+    color: #555; /* Цвет текста */
+    line-height: 1.5;
+}
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .modal-content {
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    /* height: 80%; */
+    text-align: center; /* Центрируем содержимое */
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+  }
