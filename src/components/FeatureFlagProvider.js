@@ -1,22 +1,22 @@
-// ParentComponent.js
-import React from 'react';
-import { FeatureFlagProvider } from '../FeatureFlagContext';
-import { Items } from './Items';
+// FeatureFlagContext.js
+import React, { createContext, useContext, useState } from 'react';
 
-const ParentComponent = () => {
+const FeatureFlagContext = createContext();
+
+export const FeatureFlagProvider = ({ children }) => {
+  const [showItems, setShowItems] = useState(true);
+
+  const toggleShowItems = () => {
+    setShowItems((prevShowItems) => !prevShowItems);
+  };
+
   return (
-    <FeatureFlagProvider>
-      <div>
-        {}
-        <Items
-          items={}
-          onAdd={}
-          onShowItem={}
-        />
-        {}
-      </div>
-    </FeatureFlagProvider>
+    <FeatureFlagContext.Provider value={{ showItems, toggleShowItems }}>
+      {children}
+    </FeatureFlagContext.Provider>
   );
 };
 
-export default ParentComponent;
+export const useFeatureFlag = () => {
+  return useContext(FeatureFlagContext);
+};
