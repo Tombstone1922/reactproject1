@@ -279,6 +279,17 @@ header .presentation::after {
         padding: 10px 10px 10px 10px ;
     }
 
+    .search-button {
+        margin-left: 500px; /* Добавьте нужные отступы */
+        margin-bottom: 200px;
+        padding: 8px 12px;
+        font-size: 14px;
+        background-color: #4caf50; /* Замените на нужный вам цвет фона */
+        color: #fff; /* Замените на нужный вам цвет текста */
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
 
     main .item{
         width: 30%;
