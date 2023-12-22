@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import Order from './Order';
 import { Link } from 'react-router-dom';
+import { useFeatureFlag } from '../FeatureFlagContext'; // Добавили импорт
 
 export default function Header(props) {
   const [cartOpen, setCartOpen] = useState(false);
+  const { showItems, toggleShowItems } = useFeatureFlag(); // Добавили использование хука
 
   return (
     <header>
@@ -42,10 +44,11 @@ export default function Header(props) {
         )}
       </div>
       <div className='presentation'>
-        <button onClick={props.toggleShowItems} className="search-button">
-          {props.showItems ? 'Убрать поиск' : 'Вернуть поиск'}
+        <button onClick={toggleShowItems} className="search-button">
+          {showItems ? 'Убрать товар' : 'Вернуть товар'}
         </button>
       </div>
+     
       <div>
         {props.user ? (
           <p>Welcome, {props.user.username}!</p>
@@ -55,6 +58,10 @@ export default function Header(props) {
       </div>
     </header>
   );
+
+ 
+
+
 
   function showOrders(props) {
     let summa = 0;
@@ -66,6 +73,8 @@ export default function Header(props) {
           <Order onDelete={props.onDelete} key={el.id} item={el} />
         ))}
         <p className="summa"> Сумма: {new Intl.NumberFormat().format(summa)}$ </p>
+
+        
         <button
           onClick={() => {
             props.onClearCart();
