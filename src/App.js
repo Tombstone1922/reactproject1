@@ -10,6 +10,7 @@ import Notification from './components/Notification';
 import AboutUs from './components/AboutUs';
 import Contacts from './components/Contacts';
 import LoginForm from './components/LoginForm';
+import { FeatureFlagProvider } from './FeatureFlagContext'; // Импорт провайдера флага функциональности
 
 class App extends React.Component {
   constructor(props) {
@@ -80,6 +81,11 @@ class App extends React.Component {
       notificationType: '',
       username: null,
       showLoginForm: true,
+      // Feature Flags
+      enableProfileButton: true,
+      enableSearch: true,
+      showItems: true,
+
     };
 
     this.state.currentItems = this.filterItems(this.state.items);
@@ -91,6 +97,7 @@ class App extends React.Component {
     this.toggleForm = this.toggleForm.bind(this);
     this.updateUsername = this.updateUsername.bind(this);
     this.placeOrder = this.placeOrder.bind(this);
+    
   }
 
   chooseCategory(category) {
@@ -140,6 +147,12 @@ class App extends React.Component {
         this.setState({ notificationMessage: '', notificationType: '' });
       }, 3000);
     }
+  }
+
+  toggleShowItems() {
+    this.setState((prevState) => ({
+      showItems: !prevState.showItems,
+    }));
   }
 
   updateSearchQuery(query) {
@@ -192,6 +205,7 @@ class App extends React.Component {
 
   render() {
     return (
+      <FeatureFlagProvider>
       <Router>
         <div className="wrapper">
           <Header
@@ -204,6 +218,9 @@ class App extends React.Component {
             showLoginForm={this.state.showLoginForm}
             onToggleForm={this.toggleForm}
             onPlaceOrder={this.placeOrder}
+            enableProfileButton={this.state.enableProfileButton}
+            enableSearch={this.state.enableSearch}
+
           />
           <Notification
             message={this.state.notificationMessage}
@@ -230,6 +247,7 @@ class App extends React.Component {
           <ToastContainer position="bottom-right" />
         </div>
       </Router>
+      </FeatureFlagProvider>
     );
   }
 }
